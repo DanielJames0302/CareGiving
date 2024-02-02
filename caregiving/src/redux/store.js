@@ -1,4 +1,4 @@
-import { configureStore } from 'react-redux'
+import { configureStore } from '@reduxjs/toolkit'
 import  useReducer  from './auth-slice'
 
 export default configureStore({
