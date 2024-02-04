@@ -1,0 +1,21 @@
+.onboarding-form {
+  display: flex;
+  padding: 20px;
+  border: 1px solid #f4f4f4;
+  border-radius: 10px;
+  background-color: white;
+  width: 70%;
+
+}
+
+.onboarding-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+
+.error-message {
+  color: red;
+}
