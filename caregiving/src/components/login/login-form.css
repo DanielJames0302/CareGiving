@@ -1,0 +1,45 @@
+.login-form {
+  display: flex;
+  padding: 20px;
+  border: 1px solid #f4f4f4;
+  border-radius: 10px;
+  background-color: white;
+
+}
+
+.login-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.login-form-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+}
+.form-btn {
+  background-color: #E52B50;
+  width: 50%;
+  height: auto;
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  color: white;
+}
+.grey {
+  background-color: #EAEAEA;
+  color: #676767;
+}
+.error-message {
+  color: red;
+}
+.forgot-password {
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
