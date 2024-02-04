@@ -15,6 +15,7 @@ import { login, logout } from '../../redux/auth-slice.js';
 import { useNavigate } from 'react-router-dom'
 import { collection, addDoc } from 'firebase/firestore'
 
+
 const LoginForm = () => {
   const dispatch = useDispatch()
   const [action, setAction] = useState('login')
@@ -55,16 +56,17 @@ const LoginForm = () => {
     }
     createUserWithEmailAndPassword(auth, users.email, users.password)
       .then(async (useCredential) => {
-        dispatch(login({email: useCredential.user.email, isAdmin: false}))
+        
         try {
-          await addDoc(collection(db, "users"), {
+          const docRef = await addDoc(collection(db, "users"), {
               ...users
           });
+          dispatch(login({email: useCredential.user.email, isAdmin: false, userId: docRef.id}))
         } catch (error) {
           setError(error)
         }
         
-        navigate('/home')
+        navigate('/onboarding')
       }).catch((error) => {
         setError(error.message)
       })
