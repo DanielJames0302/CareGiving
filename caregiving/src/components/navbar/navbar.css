@@ -1,0 +1,11 @@
+.navbar {
+  background-color: #E52B50;
+}
+.nav-link {
+  color: white;
+}
+.profile-picture {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
