@@ -16,7 +16,6 @@ export const authSlice = createSlice({
       state.email = action.payload.email;
       state.isAdmin = action.payload.isAdmin;
       state.userId = action.payload.userId
-      console.log(state)
     },
     logout: state => {
       state.isLoggedIn = false;

@@ -7,6 +7,7 @@ import './navbar.css'
 
 const NavbarMenu = () => {
   const user = useSelector((state) => state.user)
+  console.log(user)
 
   return (
     <Navbar collapseOnSelect  expand="lg" className="navbar text-light">
