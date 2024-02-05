@@ -29,7 +29,7 @@ const LoginForm = () => {
   onAuthStateChanged(auth, (user) => {
     if(user) {
       dispatch(login({email: user.email, isAdmin: user.isAdmin}))
-      navigate('/home')
+      navigate('/')
     } else {
       dispatch(logout())
     }
@@ -41,7 +41,7 @@ const LoginForm = () => {
     signInWithEmailAndPassword(auth, users.email, users.password)
       .then((useCredential) => {
         dispatch(login({email: useCredential.user.email, isAdmin: false}))
-        navigate('/home')
+        navigate('/')
       }).catch((error) => {
         setError(error.message)
       })
