@@ -4,6 +4,7 @@ import Login from "../pages/login/Login";
 import Onboarding from "../pages/onboarding/Onboarding";
 import HomePage from "../pages/home/home";
 
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
         element: <HomePage/>
       },
       {
+
         path: "/login",
         element: <Login />
       },
