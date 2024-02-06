@@ -3,6 +3,7 @@ import App from "../App";
 import Login from "../pages/login/Login";
 import Onboarding from "../pages/onboarding/Onboarding";
 import HomePage from "../pages/home/home";
+import Activity from "../pages/activity/activity";
 
 
 const router = createBrowserRouter([
@@ -22,8 +23,11 @@ const router = createBrowserRouter([
       {
         path: "/onboarding",
         element: <Onboarding />
+      },
+      {
+        path: "/volunteer/1",
+        element: <Activity />
       }
-    
 
     ],
   }
