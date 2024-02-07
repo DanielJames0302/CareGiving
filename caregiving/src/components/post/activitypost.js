@@ -7,8 +7,10 @@ import './activitypost.css'
 import Card from 'react-bootstrap/Card';
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom';
+import { Timestamp } from 'firebase/firestore'
 
 const ActivityPost = () => {
+  const current_timestamp = Timestamp.fromDate(new Date())
   const { activityId } = useParams()
   const user = useSelector((state) => state.user)
   const [activity, setActivity] = useState({})
@@ -36,9 +38,6 @@ const ActivityPost = () => {
     )
   }
   const handleVolunteerButton = async () => {
-    if (activity?.participants?.includes(user.userId)) {
-      return;
-    }
     const docRef = doc(db, "activities", activityId);
     try {
       await updateDoc(docRef, {
@@ -48,7 +47,7 @@ const ActivityPost = () => {
         return (
           {
             ...prevData,
-            participants: [...prevData.participants, user.userId]
+            participants: [...prevData?.participants, user.userId]
           }
         )
     
@@ -56,10 +55,17 @@ const ActivityPost = () => {
     } catch(error) {
 
     }
-    
 
+    const docRef2 = doc(db, "users", user.userId);
+    try {
+      await updateDoc(docRef2, {
+        currentActivities: arrayUnion(activityId)
+      });
+     
+    } catch(error) {
+
+    }
   }
-
   return (
     <div className='activity-post'>
       <div className="activity-post-wrapper">
@@ -78,7 +84,7 @@ const ActivityPost = () => {
                     </div>
                   ))}
                </div>
-               <h3 className='my-3'>About the acitity</h3>
+               <h3 className='my-3'>About the activity</h3>
                <p className='acactivity-post-details'>
                   {activity.details}
                </p>
@@ -91,7 +97,7 @@ const ActivityPost = () => {
                 <p>Start: {activity?.startDate.toDate().toDateString()} {activity?.startDate.toDate().toLocaleTimeString()}</p>
                 <p>End: {activity?.endDate.toDate().toDateString()} {activity?.endDate.toDate().toLocaleTimeString()}</p>
             </Card.Text>
-            <button className='volunteer-button' onClick={handleVolunteerButton}>{activity?.participants?.includes(user.userId) ? 'Joined' : 'Volunteer' }</button>
+            <button disabled={current_timestamp > activity?.endDate}  className={current_timestamp > activity?.endDate? 'volunteer-button expired': 'volunteer-button'} onClick={handleVolunteerButton}>{current_timestamp < activity?.endDate? activity?.participants?.includes(user.userId) ? 'Joined' : 'Volunteer' : 'Ended' }</button>
           </Card.Body>
         </Card>
         </div>
