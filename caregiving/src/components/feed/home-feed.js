@@ -55,8 +55,8 @@ const HomeFeed = () => {
               <Card.Title>{activity.name}</Card.Title>
             </Card.Body>
             <Card.Footer>
-                <p className="text-muted">Start: {activity?.startDate.toDate().toDateString()}</p>
-                <p className="text-muted">End: {activity?.endDate.toDate().toDateString()}</p>
+                <p className="text-muted">Start: {activity?.startDate.toDate().toDateString()} </p>
+                <p className="text-muted">End: {activity?.endDate.toDate().toDateString()} </p>
             </Card.Footer>
           </Card>
         ))}

@@ -10,7 +10,8 @@ function App() {
   const dispatch = useDispatch()
   onAuthStateChanged(auth, (user) => {
     if(user) {
-      dispatch(login({email: user.email, isAdmin: user.isAdmin}))
+      console.log(user)
+      dispatch(login({email: user.email, isAdmin: user.isAdmin, userId: user.uid}))
     } else {
       dispatch(logout())
     }

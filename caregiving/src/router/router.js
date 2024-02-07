@@ -25,7 +25,7 @@ const router = createBrowserRouter([
         element: <Onboarding />
       },
       {
-        path: "/volunteer/1",
+        path: "/volunteer/:activityId",
         element: <Activity />
       }
 
