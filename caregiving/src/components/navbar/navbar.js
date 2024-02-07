@@ -16,7 +16,7 @@ const NavbarMenu = () => {
       <Navbar.Collapse id="responsive-navbar-nav">
 
         <Nav className="me-auto">
-          <Nav.Link className='text-light'  href="/home">Home</Nav.Link>
+          <Nav.Link className='text-light'  href="/">Home</Nav.Link>
           {user.isLoggedIn && <Nav.Link className='text-light'  href="/activity">Activity</Nav.Link> }
           {user.isAdmin && <Nav.Link className='text-light'  href="/manage_admin">Activity</Nav.Link> }
           
@@ -28,7 +28,7 @@ const NavbarMenu = () => {
           </Nav.Link>
         </Nav> :
         <Nav>
-        <Nav.Link href="/myprofile"> <img className='profile-picture' alt='default-profile' src={process.env.PUBLIC_URL+"images/default-profile-picture.jpg"}  /></Nav.Link>
+        <Nav.Link href="/myprofile"> <img className='profile-picture' alt='default-profile' src={process.env.PUBLIC_URL+"/images/default-profile-picture.jpg"}  /></Nav.Link>
        
         </Nav>
         
