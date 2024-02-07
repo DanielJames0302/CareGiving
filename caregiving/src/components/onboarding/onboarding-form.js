@@ -72,7 +72,7 @@ const OnboardingForm = () => {
         }
         setIsLoading(false)
    
-        navigate('/home')
+        navigate('/')
       }
      
      

@@ -13,7 +13,7 @@ import { auth, db} from '../../firebase/firebase.js'
 import { useDispatch } from 'react-redux'
 import { login, logout } from '../../redux/auth-slice.js';
 import { useNavigate } from 'react-router-dom'
-import { collection, addDoc } from 'firebase/firestore'
+import { setDoc, doc } from 'firebase/firestore'
 
 
 const LoginForm = () => {
@@ -40,7 +40,7 @@ const LoginForm = () => {
     setError('')
     signInWithEmailAndPassword(auth, users.email, users.password)
       .then((useCredential) => {
-        dispatch(login({email: useCredential.user.email, isAdmin: false}))
+        dispatch(login({email: useCredential.user.email, isAdmin: false, userId: useCredential.user.uid}))
         navigate('/')
       }).catch((error) => {
         setError(error.message)
@@ -56,12 +56,12 @@ const LoginForm = () => {
     }
     createUserWithEmailAndPassword(auth, users.email, users.password)
       .then(async (useCredential) => {
-        
+        console.log(useCredential)
         try {
-          const docRef = await addDoc(collection(db, "users"), {
-              ...users
+          await setDoc(doc(db, "users", useCredential.user.uid), {
+            ...users
           });
-          dispatch(login({email: useCredential.user.email, isAdmin: false, userId: docRef.id}))
+          dispatch(login({email: useCredential.user.email, isAdmin: false, userId: useCredential.user.uid}))
         } catch (error) {
           setError(error)
         }
