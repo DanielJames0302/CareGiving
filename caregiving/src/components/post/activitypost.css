@@ -15,15 +15,24 @@
 }
 .activity-post-content-left {
   flex: 1;
+  padding-top: 0;
 }
 
 .activity-image-container {
-  margin-top: 20px;
-  width: 50%;
+  margin-top: 0;
+  width: 100%;
+  height: 50%;
   object-fit: cover;
+
 }
 .activity-image {
   width: 100%;
+  height: 100%;
+}
+.button-controls {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
 }
 .volunteer-button {
   background-color: #E52B50;
@@ -62,4 +71,26 @@
   background-color: rgb(178, 176, 176);
   color: black;
   font-weight: bold;
+}
+
+.feedback-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 50%;
+}
+
+.feedback-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #a2e5bb;
+  border-radius: 5px;
+  font-weight: bold;
+  height: 80px;
+  color: #1a5f34;
+}
+.feedback-info {
+  margin: 0;
 }

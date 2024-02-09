@@ -55,13 +55,13 @@ const CreateActivityForm = () => {
       if (!isLoading) {
         setIsLoading(true)
         try {
-          const imgUrl = `/activities/${activity.name}-${v4()}`
+          const imgUrl = `/activities/${activity.name}/${activity.name}-${v4()}`
           await addDoc(collection(db, "activities"), {
             ...activity,
             startDate: startDate.$d,
             endDate: endDate.$d,
             supportedCauses: activityGoals,
-            imageUrl: imgUrl
+            imageUrl: `/activities/${activity.name}/`
   
           });
           

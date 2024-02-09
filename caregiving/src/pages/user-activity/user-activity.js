@@ -15,7 +15,6 @@ const UserActivity = () => {
   const [pastActivities, setPastActivities] = useState([])
 
   const fetchActivites = useCallback(() => {
-    console.log(1)
     onAuthStateChanged(auth, async (user) => {
       if(user) {
         const docRef = doc(db, "users", user.uid);
@@ -50,7 +49,7 @@ const UserActivity = () => {
   }, [fetchActivites]) 
   if (isLoading) {
     return (
-      <Spinner animation="border" role="status">
+      <Spinner className='m-3' animation="border" role="status">
       <span className="visually-hidden">Loading...</span>
      </Spinner>
     )

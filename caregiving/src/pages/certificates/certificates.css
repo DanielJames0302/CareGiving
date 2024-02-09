@@ -1,0 +1,12 @@
+.certificate-page-wrapper {
+  padding: 20px;
+}
+.certificate-list {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.certificate-picture {
+  width: 20%;
+
+}

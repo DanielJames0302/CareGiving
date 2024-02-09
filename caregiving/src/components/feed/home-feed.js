@@ -1,27 +1,43 @@
 import React from 'react'
 import './home-feed.css'
 import { collection, getDocs } from "firebase/firestore";
-import { db } from '../../firebase/firebase.js'
+import { db, storage } from '../../firebase/firebase.js'
 import { useEffect, useState, useCallback } from 'react'
 import Card from 'react-bootstrap/Card';
 import Spinner from 'react-bootstrap/Spinner';
 import { Link } from 'react-router-dom'
+import { ref } from 'firebase/storage';
+import { getDownloadURL } from 'firebase/storage';
+import { listAll } from 'firebase/storage';
 
 const HomeFeed = () => {
   const [activities, setActivities] = useState([])
  
   const getActivities = useCallback(async () => {
-    const getActivitiesFromFirebase = []
       const querySnapshot = await getDocs(collection(db, "activities"));
-
       querySnapshot.forEach((doc) => {
-        getActivitiesFromFirebase.push({
-          ...doc.data(),
-          id: doc.id
-        })
-      })
     
-    setActivities(getActivitiesFromFirebase)
+        const data = doc.data()
+        const listRef = ref(storage, data.imageUrl);
+        listAll(listRef)
+          .then((res) => {
+            res.items.forEach((itemRef) => {
+               getDownloadURL(itemRef).then((url) => {
+                 console.log(url)
+                 setActivities(data => [...data, {
+                  ...doc.data(),
+                  id: doc.id,
+                  file: url
+                 }])
+                
+               })
+            });
+          }).catch((error) => {
+     
+          });
+       
+      })
+
   }, [])
 
   useEffect(() => {
@@ -42,7 +58,10 @@ const HomeFeed = () => {
         {activities?.map((activity,id) => (
           <Link style={{textDecoration: 'none'}} to={`/volunteer/${activity.id}`}>
             <Card key={id} style={{ width: '25rem' }}>
-            <Card.Img variant="top" src={process.env.PUBLIC_URL+"images/default-volunteer.png"} />
+             
+              <Card.Img alt='activity' style={{height: '15rem'}} className='activity-image' variant="top" src={activity.file ===''? process.env.PUBLIC_URL+"images/default-volunteer.png" : activity.file} />
+       
+           
             <Card.Body>
               <Card.Title>{activity.name}</Card.Title>
             </Card.Body>
