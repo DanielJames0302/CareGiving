@@ -11,20 +11,21 @@ const NavbarMenu = () => {
   return (
     <Navbar collapseOnSelect  expand="lg" className="navbar text-light">
     <Container>
-      <Navbar.Brand className='text-light'  href="/home">Big At Heart</Navbar.Brand>
+      <Navbar.Brand className='text-light'  href="/home"><h1><strong>Connect@Heart</strong></h1></Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
 
         <Nav className="me-auto">
-          <Nav.Link className='text-light'  href="/">Home</Nav.Link>
-          {user.isLoggedIn && <Nav.Link className='text-light'  href="/activity">Activity</Nav.Link> }
-          {user.isAdmin && <Nav.Link className='text-light'  href="/manage_admin">Activity</Nav.Link> }
+          <Nav.Link className='text-light'  href="/"><strong>Home</strong></Nav.Link>
+          {user.isLoggedIn && !user.isAdmin && <Nav.Link className='text-light'  href="/user-activity"><strong>Activity</strong></Nav.Link> }
+          {user.isLoggedIn && !user.isAdmin && <Nav.Link className='text-light'  href="/certificates"> <strong>Certificates</strong></Nav.Link> }
+          {user.isAdmin && <Nav.Link className='text-light'  href="/manage-admin"><strong>Manage</strong></Nav.Link> }
           
         </Nav>
         {user.isLoggedIn === false ? <Nav>
-          <Nav.Link className='text-light' href="/login">Login</Nav.Link>
+          <Nav.Link className='text-light' href="/login"><strong>Login</strong></Nav.Link>
           <Nav.Link className='text-light' eventKey={2} href="/login">
-            Signup
+            <strong>Signup</strong>
           </Nav.Link>
         </Nav> :
         <Nav>

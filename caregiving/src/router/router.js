@@ -4,7 +4,8 @@ import Login from "../pages/login/Login";
 import Onboarding from "../pages/onboarding/Onboarding";
 import HomePage from "../pages/home/home";
 import Activity from "../pages/activity/activity";
-
+import ManageAdmin from "../pages/manage-admin/manage-admin";
+import UserActivity from "../pages/user-activity/user-activity";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,14 @@ const router = createBrowserRouter([
       {
         path: "/volunteer/:activityId",
         element: <Activity />
+      },
+      {
+        path: "/manage-admin",
+        element: <ManageAdmin />
+      },
+      {
+        path: "/user-activity",
+        element: <UserActivity />
       }
 
     ],
