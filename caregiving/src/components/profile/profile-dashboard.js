@@ -104,7 +104,7 @@ const ProfileDashboard = () => {
   return (
     <div className="profile-dashboard">
       <div className="profile-dashboard-wrapper">
-        <div className="left-section mr-auto">
+        <div className="left-section">
           {isEdit === false ? (
             <Button variant="warning" onClick={() => setIsEdit(true)}>
               Edit
@@ -116,7 +116,6 @@ const ProfileDashboard = () => {
           )}
           <div className="profile-dashboard-form">
             <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
-              <h1 className="onboarding-form-title">Volunteer onboarding</h1>
               <fieldset disabled={!isEdit}>
                 <Row className="mb-3">
                   <Form.Group as={Col} controlId="formGridName">

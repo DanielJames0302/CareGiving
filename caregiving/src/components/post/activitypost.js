@@ -114,7 +114,7 @@ const ActivityPost = () => {
               <div className="causes-list">
                 {activity?.supportedCauses.map((cause, id) => (
                   <div key={id} className="cause-item">
-                    {cause.value}
+                    {cause}
                   </div>
                 ))}
               </div>

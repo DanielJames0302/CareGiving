@@ -6,4 +6,7 @@
   flex-direction: row;
   justify-content: space-around;
 }
+.left-section {
+  flex: 2
+}
 
