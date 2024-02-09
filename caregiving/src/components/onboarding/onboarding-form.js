@@ -74,12 +74,8 @@ const OnboardingForm = () => {
    
         navigate('/')
       }
-     
-     
     }
-    
     setValidated(true);
-  
   }
 
   return (

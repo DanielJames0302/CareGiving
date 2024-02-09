@@ -7,7 +7,7 @@ const HomePage = () => {
     <div className='home-page'>
       <div className="home-page-wrapper">
           <div className='home-page-content-top'>
-            <h2 className='welcome-message'> Welcome to Big At Heart  </h2>
+            <h2 className='welcome-message'> Welcome to Connect@Heart  </h2>
             <p className='volunteer-quote'> Vonlunteering makes a difference</p>
 
           </div>

@@ -1,0 +1,15 @@
+.create-activity-form {
+  padding: 0;
+}
+.form-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.form-controls {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

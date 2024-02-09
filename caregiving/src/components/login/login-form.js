@@ -7,11 +7,11 @@ import {
   signInWithEmailAndPassword, 
   createUserWithEmailAndPassword, 
   sendPasswordResetEmail,
-  onAuthStateChanged,
+  sendEmailVerification,
 } from 'firebase/auth'
 import { auth, db} from '../../firebase/firebase.js'
 import { useDispatch } from 'react-redux'
-import { login, logout } from '../../redux/auth-slice.js';
+import { login } from '../../redux/auth-slice.js';
 import { useNavigate } from 'react-router-dom'
 import { setDoc, doc } from 'firebase/firestore'
 
@@ -23,17 +23,6 @@ const LoginForm = () => {
   const [confirmPassword, setConfirmPassword] = useState('')
   const [error, setError] = useState('')
   const navigate = useNavigate()
-  
- 
-  
-  onAuthStateChanged(auth, (user) => {
-    if(user) {
-      dispatch(login({email: user.email, isAdmin: user.isAdmin}))
-      navigate('/')
-    } else {
-      dispatch(logout())
-    }
-  })
 
   const handleLoginSubmit = (e) => {
     e.preventDefault();
@@ -56,11 +45,13 @@ const LoginForm = () => {
     }
     createUserWithEmailAndPassword(auth, users.email, users.password)
       .then(async (useCredential) => {
-        console.log(useCredential)
         try {
           await setDoc(doc(db, "users", useCredential.user.uid), {
             ...users
           });
+          await sendEmailVerification(useCredential.user)
+          alert('Email verification request has been sent to you')
+          
           dispatch(login({email: useCredential.user.email, isAdmin: false, userId: useCredential.user.uid}))
         } catch (error) {
           setError(error)
@@ -117,7 +108,7 @@ const LoginForm = () => {
               {action === 'login' ? 'Login' : 'Sign Up'}
             </Button>
             <p className='error-message'>{error}</p>
-            <p onClick={handlePasswordReset} className='forgot-password'>Forgot password</p>
+            {action === 'login' ? <p onClick={handlePasswordReset} className='forgot-password'>Forgot password</p> : null }
      
           </Form>
             

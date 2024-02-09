@@ -1,0 +1,36 @@
+.certificate-request {
+  padding: 0 10px;
+}
+.requests-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.request-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+.request-info {
+  margin-right: auto;
+}
+
+.request-control-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  height: 50%;
+}
+
+.volunteer-name {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+

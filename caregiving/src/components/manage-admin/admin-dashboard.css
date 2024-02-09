@@ -1,0 +1,38 @@
+.admin-dashboard-wrapper {
+  padding: 30px;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.admin-dashboard-content-left {
+  flex: 1;
+}
+.menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.option-btn {
+  background-color: #EAEAEA;
+  color: #676767;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+  border-radius: 5px;
+  background-color: white;
+  border: 1px solid black;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.chosen {
+  background-color: #E52B50;
+  color: white;
+}
+.admin-dashboard-content-right {
+  flex: 3;
+}
