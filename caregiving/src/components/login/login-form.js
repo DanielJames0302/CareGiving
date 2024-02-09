@@ -105,7 +105,7 @@ const LoginForm = () => {
             </Form.Group> : ''}
            
             <Button variant="primary" type='submit'>
-              {action === 'login' ? 'Login' : 'Sign Up'}
+              {action === 'login' ? 'Login' : 'Sign up'}
             </Button>
             <p className='error-message'>{error}</p>
             {action === 'login' ? <p onClick={handlePasswordReset} className='forgot-password'>Forgot password</p> : null }

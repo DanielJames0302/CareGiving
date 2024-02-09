@@ -1,3 +1,9 @@
 .profile-dashboard {
-  width: 50%;
+  width: 100%;
 }
+.profile-dashboard-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+

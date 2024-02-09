@@ -46,7 +46,7 @@ const router = createBrowserRouter([
       {
         path: "/certificates",
         element: <Certificate />
-      }
+      },
 
     ],
   }

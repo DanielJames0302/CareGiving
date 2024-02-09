@@ -7,11 +7,14 @@ import Row from 'react-bootstrap/Row';
 import CreatableSelect from 'react-select/creatable';
 import Spinner from 'react-bootstrap/Spinner';
 import { doc, updateDoc } from "firebase/firestore";
-import { onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { getDoc } from 'firebase/firestore';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { skills } from '../onboarding/skills';
 import './profile-dashboard.css'
+import { useNavigate } from 'react-router-dom';
+import { logout } from '../../redux/auth-slice';
+
 
 const ProfileDashboard = () => {
   const [isEdit, setIsEdit] = useState(false)
@@ -26,10 +29,12 @@ const ProfileDashboard = () => {
     residentialStatus: '',
     dateOfBirth: '',
     })
+  const dispatch = useDispatch()
   const [validated, setValidated] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState('')
   const [userSkills, setUserSkills] = useState()
+  const navigate = useNavigate()
 
   const userId = useSelector((state) => state.user.userId )
   const fetchActivites = useCallback(() => {
@@ -94,10 +99,19 @@ const ProfileDashboard = () => {
     }
     setValidated(true);
   }
+  const handleLogOut = () => {
+    signOut(auth).then(() => {
+      dispatch(logout())
+      navigate('/')
+    }).catch((error) => {
+      // An error happened.
+    });
+  }
   return (
     <div className='profile-dashboard'>
       <div className='profile-dashboard-wrapper'>
-          {isEdit === false ? <Button variant='warning' onClick={() => setIsEdit(true)}>Edit</Button> : <Button variant='danger' onClick={() => setIsEdit(false)}>Stop edit</Button>}
+        <div className="left-section mr-auto">
+        {isEdit === false ? <Button variant='warning' onClick={() => setIsEdit(true)}>Edit</Button> : <Button variant='danger' onClick={() => setIsEdit(false)}>Stop edit</Button>}
           <div className='profile-dashboard-form'>
           <Form  noValidate validated={validated}  onSubmit={handleFormSubmit}>
           <h1 className='onboarding-form-title'>Volunteer onboarding</h1>
@@ -207,6 +221,11 @@ const ProfileDashboard = () => {
          
           </Form>
           </div>
+        </div>
+        <div className="right-section">
+            <Button variant='warning' onClick={() => handleLogOut()}>Log out</Button>
+        </div>
+          
       </div>
     </div>
   )
