@@ -16,7 +16,7 @@ const NavbarMenu = () => {
       <Navbar.Collapse id="responsive-navbar-nav">
 
         <Nav className="me-auto">
-          <Nav.Link className='text-light'  href="/"><strong>Home</strong></Nav.Link>
+          <Nav.Link className='text-light'  href="/"><strong>Explore</strong></Nav.Link>
           {user.isLoggedIn && !user.isAdmin && <Nav.Link className='text-light'  href="/user-activity"><strong>Activity</strong></Nav.Link> }
           {user.isLoggedIn && !user.isAdmin && <Nav.Link className='text-light'  href="/certificates"> <strong>Certificates</strong></Nav.Link> }
           {user.isAdmin && <Nav.Link className='text-light'  href="/manage-admin"><strong>Manage</strong></Nav.Link> }
