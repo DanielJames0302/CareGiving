@@ -65,7 +65,7 @@ As this is currently a prototype version, we have certain features we would love
 * Back-end: Firebase
 
 ## Overview of files
-'caregiving' folder contain our frontend files.
+'caregiving' folder contains our frontend files.
 
 ## Getting started
 The following are the instuctions to run Connect@Heart locally.
