@@ -6,6 +6,8 @@ import HomePage from "../pages/home/home";
 import Activity from "../pages/activity/activity";
 import ManageAdmin from "../pages/manage-admin/manage-admin";
 import UserActivity from "../pages/user-activity/user-activity";
+import Profile from "../pages/profile/profile";
+import Certificate from "../pages/certificates/certificates";
 
 const router = createBrowserRouter([
   {
@@ -36,7 +38,15 @@ const router = createBrowserRouter([
       {
         path: "/user-activity",
         element: <UserActivity />
-      }
+      },
+      {
+        path: "/my-profile",
+        element: <Profile />
+      },
+      {
+        path: "/certificates",
+        element: <Certificate />
+      },
 
     ],
   }

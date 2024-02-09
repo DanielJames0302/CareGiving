@@ -25,11 +25,11 @@ const NavbarMenu = () => {
         {user.isLoggedIn === false ? <Nav>
           <Nav.Link className='text-light' href="/login"><strong>Login</strong></Nav.Link>
           <Nav.Link className='text-light' eventKey={2} href="/login">
-            <strong>Signup</strong>
+            <strong>Sign up</strong>
           </Nav.Link>
         </Nav> :
         <Nav>
-        <Nav.Link href="/myprofile"> <img className='profile-picture' alt='default-profile' src={process.env.PUBLIC_URL+"/images/default-profile-picture.jpg"}  /></Nav.Link>
+        <Nav.Link href="/my-profile"> <img className='profile-picture' alt='default-profile' src={process.env.PUBLIC_URL+"/images/default-profile-picture.jpg"}  /></Nav.Link>
        
         </Nav>
         

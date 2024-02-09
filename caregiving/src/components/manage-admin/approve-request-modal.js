@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux';
 import { doc, updateDoc,arrayUnion } from "firebase/firestore";
 import { db } from '../../firebase/firebase';
 
-const ApproveRequestModal = ({name, activity, requestId, isApprove, setIsApprove, handleDeleteRequests }) => {
+const ApproveRequestModal = ({name, userId, activity, requestId, isApprove, setIsApprove, handleDeleteRequests }) => {
   const user = useSelector((state) => state.user)
   const [certiUpload, setCertiUpload] = useState(null)
 
@@ -19,7 +19,8 @@ const ApproveRequestModal = ({name, activity, requestId, isApprove, setIsApprove
     if (certiUpload === null) {
       return;
     }
-    const imgUrl = `/certificates/${name}-${activity}-${v4()}`
+    console.log(userId)
+    const imgUrl = `/certificates/${userId}/${activity}-${v4()}`
     const imageRef = ref(storage, imgUrl)
     uploadBytes(imageRef, certiUpload).then(async () => {
       handleDeleteRequests(requestId)

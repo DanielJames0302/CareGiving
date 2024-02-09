@@ -17,7 +17,8 @@ const UserActivityDashboard = ({currentActivities, pastActivities}) => {
     await addDoc(collection(db, "requests"), {
       name: user.name,
       activity: item.name,
-      hours: 12
+      hours: 12,
+      userId: user.userId
     });
     setIsSuccess(true)
   }

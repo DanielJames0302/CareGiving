@@ -43,7 +43,7 @@ const CertificateRequests = () => {
                   <Button variant="success" onClick={() => setIsApprove(true)}>Approve</Button>
                   <Button variant="danger" onClick={() => handleDeleteRequests(request.id)}>Reject</Button>
                 </div>
-                {true && <ApproveRequestModal isApprove={isApprove} name={request.name} activity={request.activity} requestId={request.id} setIsApprove={setIsApprove} handleDeleteRequests={handleDeleteRequests} />}
+                {true && <ApproveRequestModal isApprove={isApprove} userId={request.userId} name={request.name} activity={request.activity} requestId={request.id} setIsApprove={setIsApprove} handleDeleteRequests={handleDeleteRequests} />}
              
 
                
