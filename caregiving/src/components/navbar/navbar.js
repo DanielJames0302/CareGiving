@@ -11,7 +11,7 @@ const NavbarMenu = () => {
   return (
     <Navbar collapseOnSelect expand="lg" className="navbar text-light">
       <Container>
-        <Navbar.Brand className="text-light" href="/home">
+        <Navbar.Brand className="text-light" href="/">
           <h1>
             <strong>Connect@Heart</strong>
           </h1>
