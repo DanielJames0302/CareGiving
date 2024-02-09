@@ -14,7 +14,6 @@ function App() {
 
   onAuthStateChanged(auth, async (user) => {
     if(user) {
-      console.log(user)
       const docRef = doc(db, "users", user.uid);
       const docSnap = await getDoc(docRef);
 

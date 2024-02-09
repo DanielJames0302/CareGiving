@@ -3,19 +3,20 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from 'firebase/auth'
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBG1Lh5dIAqYt0qmaRR2DYnFD9HLaB9W2U",
-  authDomain: "connectheart-c79e2.firebaseapp.com",
-  projectId: "connectheart-c79e2",
-  storageBucket: "connectheart-c79e2.appspot.com",
-  messagingSenderId: "310754350514",
-  appId: "1:310754350514:web:7c9dc97e717ac333a1c0ab",
-  measurementId: "G-959BXB02DP"
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID,
+  measurementId: process.env.REACT_APP_MEASUREMENT_ID 
 };
 
 // Initialize Firebase
