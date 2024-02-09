@@ -27,7 +27,6 @@ const ApproveRequestModal = ({
     if (certiUpload === null) {
       return;
     }
-    console.log(userId);
     const imgUrl = `/certificates/${userId}/${activity}-${v4()}`;
     const imageRef = ref(storage, imgUrl);
     uploadBytes(imageRef, certiUpload).then(async () => {

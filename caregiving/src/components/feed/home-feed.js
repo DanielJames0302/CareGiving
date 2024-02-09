@@ -22,7 +22,6 @@ const HomeFeed = () => {
         .then((res) => {
           res.items.forEach((itemRef) => {
             getDownloadURL(itemRef).then((url) => {
-              console.log(url);
               setActivities((data) => [
                 ...data,
                 {
