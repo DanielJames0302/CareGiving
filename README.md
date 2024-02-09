@@ -5,6 +5,7 @@
 
 _submitted for NUS DSC's Hack-for-Good <H4G/> Hackathon_
 
+
 **Problem Statement**: Develop a cost-effective system for volunteers to enroll, manage activities, and request certificates, while enabling nonprofit administrators to efficiently handle forms, attendance, and generate detailed reports.
 
 **Our Solution**: Connect@Heart is a comprehensive volunteer management platform designed with the mission to streamline and enhance the interaction between volunteers and the non-profit organization, Big at Heart. With Connect@Heart, volunteers gain access to a user-friendly interface that simplifies the process of finding meaningful opportunities, managing schedules, and tracking their contributions effectively. Meanwhile, Big at Heart benefits from a robust set of tools that enable them to recruit, coordinate, and communicate with volunteers effortlessly. With this app, we endeavor to bring about a seamless and frictionless user experience, which we hope may greatly contribute to connecting registered volunteers in their activities and provide value to the community.
@@ -59,7 +60,18 @@ As this is currently a prototype version, we have certain features we would love
 * Admins can edit forms and edit details for each volunteering activity.
 * Implement AI functionality to visualize data of volunteers and volunteering activities. 
 
-## Technologies Used
+## Tech Stack
 * Front-end: Reactjs
-* Database and hosting: Firebase  
+* Back-end: Firebase
+
+## Overview of files
+'caregiving' folder contain our frontend files.
+
+## Getting started
+The following are the instuctions to run Connect@Heart locally.
+  1. Clone Github Repository
+  2. In your terminal, go to caregiving folder and run 'npm install'
+  3. Run 'npm start'
+
+
 
